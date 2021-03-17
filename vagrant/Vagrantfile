@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "./windows_10_pro_virtualbox.box"
+
+  config.vm.ignore_box_vagrantfile = true
+
+  config.vm.communicator = "winrm"
+
+  # Admin user name and password
+  config.winrm.username = "vagrant"
+  config.winrm.password = "vagrant"
+
+  config.vm.guest = :windows
+  config.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
+
+  config.vm.provider :virtualbox do |v, override|
+    v.memory = 8192
+    v.cpus = 4
+    
+    v.customize ["modifyvm", :id, "--vram", 256]
+    v.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    v.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
+    v.customize ["modifyvm", :id, "--vrde", "off"]
+  end
+
+  config.vm.provision :shell, path: "shell/InstallChocolatey.ps1"
+  config.vm.provision :shell, path: "shell/ScriptChocolatey.ps1"
+  config.vm.provision :shell, inline: "c:/vagrant/office/install.bat"
+
+  #config.vm.provision :shell, inline: "shutdown /r /t 0"
+end

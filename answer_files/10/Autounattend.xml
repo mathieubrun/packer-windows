@@ -100,7 +100,8 @@
                 -->
 
                 <!-- Product Key from https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise -->
-                <ProductKey>2FMYP-QCY43-QR9VK-WTVCK
+                <ProductKey>
+                    <Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key>
                     <WillShowUI>Never</WillShowUI>
                 </ProductKey>
             </UserData>
@@ -115,7 +116,7 @@
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/NAME</Key>
-                            <Value>Windows 10 Enterprise Evaluation</Value>
+                            <Value>Windows 10 Pro</Value>
                         </MetaData>
                     </InstallFrom>
                 </OSImage>

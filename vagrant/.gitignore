@@ -1,0 +1,4 @@
+.vagrant
+office/Office
+*.box
+setup.exe

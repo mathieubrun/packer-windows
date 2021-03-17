@@ -189,7 +189,7 @@
   "post-processors": [
     {
       "keep_input_artifact": false,
-      "output": "windows_10_{{.Provider}}.box",
+      "output": "vagrant/windows_10_{{.Provider}}.box",
       "type": "vagrant",
       "vagrantfile_template": "vagrantfile-windows_10.template"
     }
@@ -241,12 +241,12 @@
     "disk_type_id": "1",
     "memory": "2048",
     "headless": "false",
-    "iso_checksum": "sha256:f1a4f2176259167cd2c8bf83f3f5a4039753b6cc28c35ac624da95a36e9620fc",
-    "iso_url": "https://software-download.microsoft.com/download/pr/19041.264.200511-0456.vb_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
+    "iso_checksum": "none",
+    "iso_url": "./iso/Win10_x64.iso",
     "restart_timeout": "5m",
     "vhv_enable": "false",
     "virtio_win_iso": "~/virtio-win.iso",
-    "vm_name": "windows_10",
+    "vm_name": "windows_10_pro",
     "winrm_timeout": "6h",
     "vmx_version": "14"
   }

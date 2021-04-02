@@ -20,11 +20,14 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--accelerate3d", "off"]
     v.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
     v.customize ["modifyvm", :id, "--vrde", "off"]
+    v.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
+    v.customize ["setextradata", :id, "GUI/ScaleFactor", "1.5"]
+    # v.customize ["setextradata", :id, "VBoxInternal/Devices/acpi/0/Config/CustomTable", "msdm.bin"]
   end
 
   config.vm.provision :shell, path: "shell/InstallChocolatey.ps1"
   config.vm.provision :shell, path: "shell/ScriptChocolatey.ps1"
   config.vm.provision :shell, inline: "c:/vagrant/office/install.bat"
 
-  #config.vm.provision :shell, inline: "shutdown /r /t 0"
+  config.vm.provision :shell, inline: "shutdown /r /t 0"
 end

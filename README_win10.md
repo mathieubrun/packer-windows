@@ -21,7 +21,9 @@ packer build --only=virtualbox-iso windows_10.json
 
 Create vagrant box
 ````sh
-cd vagrant && vagrant up
+cd vagrant
+sudo cat /sys/firmware/acpi/tables/MSDM > msdm.bin
+vagrant up
 ````
 
 Get Activation Key from BIOS
@@ -40,3 +42,4 @@ Activation
   - "Change product key" > Put product key
   - Activation will fail but key has changed in dialog
   - "Activate after hardware change"
+  - sign in
